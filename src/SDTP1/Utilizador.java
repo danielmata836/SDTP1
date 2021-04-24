@@ -12,20 +12,20 @@ public class Utilizador implements Serializable {
         FORNECEDOR, VENDEDOR, NENHUM
     }
     private int id;
-    private String nome;
+    private String username;
     private TIPO tipo;
     private String password;
 
     public Utilizador() {
-        this.nome = "";
+        this.username = "";
         this.tipo = NENHUM;
         this.password = "";
 
     }
 
-    public Utilizador(String nome, TIPO tipo, String password) {
+    public Utilizador(String username, TIPO tipo, String password) {
         this.id = 0;
-        this.nome = nome;
+        this.username = username;
         this.tipo = tipo;
         this.password = password;
     }
@@ -34,8 +34,8 @@ public class Utilizador implements Serializable {
         return id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getUsername() {
+        return username;
     }
 
     public TIPO getTipo() {
@@ -50,8 +50,8 @@ public class Utilizador implements Serializable {
         this.id = id;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setTipo(TIPO tipo) {
@@ -64,6 +64,6 @@ public class Utilizador implements Serializable {
 
     @Override
     public String toString() {
-        return "Utilizador{" + "id=" + id + ", nome=" + nome + ", tipo=" + tipo + ", password=" + password + '}';
+        return "Utilizador{" + "id=" + id + ", username=" + username + ", tipo=" + tipo + ", password=" + password + '}';
     }
 }

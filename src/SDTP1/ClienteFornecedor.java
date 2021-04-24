@@ -2,58 +2,29 @@ package SDTP1;
 
 import java.rmi.Naming;
 import java.util.ArrayList;
+
 /**
  *
  * @author Daniel
  */
-public class Cliente {
+public class ClienteFornecedor {
 
     //Método local
     public static void printMenuFilme() {
         System.out.println("----------\nMENU\n----------\n1-Registar\n2-Listar\n3-Sair\n----------");
     }
-    
-    //Método local
-    public static void printMenuUtilizador() {
-        System.out.println("----------\nMENU\n----------\n1-Entrar\n2-Registar\n3-Sair\n----------");
-    }
-    
-    //Método remoto
-    public void printOnClient(String s) throws java.rmi.RemoteException {
-        System.out.println("Message from server: " + s);
-    }
-    
+
     public static void main(String[] args) {
         System.setSecurityManager(new SecurityManager());
         try {
             ServidorInterface s = (ServidorInterface) Naming.lookup(Constants.RMI_ID);
-            Cliente c = new Cliente();
-            
-            int op1=0, op2=0, userId=0;
-            boolean loginOk = false;
-            while(op1!=3 && op2!=3){
-                printMenuUtilizador();
-                op1 = Ler.umInt();
-                switch(op1){
-                    case 1:
-                        Utilizador u = new Utilizador();
-                        u.setId(userId);
-                        userId++;
-                        System.out.println("Username: ");
-                        u.setUsername(Ler.umaString());
-                        System.out.println("Password: ");
-                        u.setPassword(Ler.umaString());
-                        //TODO: método remoto de registo no servidor
-                        break;
-                    case 2:
-                        //TODO: método remoto de verificação de login
-                        break;
-                    case 3:
-                        break;
-                }
+            ClienteFornecedor c = new ClienteFornecedor();
+
+            int op = 0;
+            while (op != 3) {
                 printMenuFilme();
-                op2 = Ler.umInt();
-                switch(op2){
+                op = Ler.umInt();
+                switch (op) {
                     case 1:
                         //Utilizador u = new Utilizador();
                         Filme filme = new Filme();
@@ -73,11 +44,13 @@ public class Cliente {
                         break;
                     case 3:
                         break;
+                    default:
+                        System.out.println("Opção inválida!");
                 }
             }
-            
         } catch (Exception ex) {
-            System.out.println("Client exception: " + ex.getMessage());
+            System.out.println("ClienteFornecedor exception: " + ex.getMessage());
         }
+
     }
 }
