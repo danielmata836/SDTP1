@@ -20,6 +20,8 @@ public class ClienteFornecedor {
             ServidorInterface s = (ServidorInterface) Naming.lookup(Constants.RMI_ID);
             ClienteFornecedor c = new ClienteFornecedor();
 
+            //TODO: login
+            
             int op = 0;
             while (op != 3) {
                 printMenuFilme();
