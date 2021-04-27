@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class Servidor extends java.rmi.server.UnicastRemoteObject implements ServidorInterface {
 
     //TODO: dividir e criar interface para cada tipo de cliente (se necessário para a callback)
-    
     //lista de clientes subscritos
     private static ArrayList<ClienteInterface> clientes = new ArrayList<ClienteInterface>();
 
@@ -20,7 +19,6 @@ public class Servidor extends java.rmi.server.UnicastRemoteObject implements Ser
     private static ArrayList<Filme> filmes = new ArrayList<Filme>();
 
     //TODO: lista de filmes comprados e outra de filmes vendidos
-    
     //lista de utilizadores
     private static ArrayList<Utilizador> utilizadores = new ArrayList<Utilizador>();
 
@@ -68,6 +66,15 @@ public class Servidor extends java.rmi.server.UnicastRemoteObject implements Ser
     @Override
     public ArrayList<Utilizador> consultarUtilizadores() throws RemoteException {
         return utilizadores;
+    }
+
+    @Override
+    public void removerUtilizador(Utilizador utilizador) throws RemoteException {
+        String name;
+        for(int i=0;i<utilizadores.size();i++){
+            name = utilizadores.get(i).getUsername();
+            if(utilizadores.get(i).getUsername().equals())
+        }
     }
 
     public static void main(String[] args) {

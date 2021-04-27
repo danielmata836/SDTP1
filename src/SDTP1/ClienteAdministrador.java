@@ -1,5 +1,6 @@
 package SDTP1;
 
+import static SDTP1.Ficheiros.*;
 import static java.lang.System.exit;
 import java.rmi.Naming;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class ClienteAdministrador {
 
     //Método local
     public static void printMenuUtilizador() {
-        System.out.println("----------\nMENU\n----------\n1-Registar\n2-Listar Utilizadores\n3-Sair\n----------");
+        System.out.println("----------\nMENU\n----------\n1-Registar\n2-Listar Utilizadores\n3-Remover Utilizador\n4-Sair\n----------");
     }
 
     //Método remoto
@@ -25,7 +26,7 @@ public class ClienteAdministrador {
         try {
             ServidorInterface s = (ServidorInterface) Naming.lookup(Constants.RMI_ID);
             ClienteAdministrador c = new ClienteAdministrador();
-
+            ArrayList<Utilizador> lista_utilizadores = null;
             boolean login = false;
 
             do {
@@ -55,12 +56,26 @@ public class ClienteAdministrador {
                         Utilizador u = new Utilizador();
                         u.setId(userId);
                         userId++;
+                        /**
+                         * Não é permitido a introdução das credenciais uma segunda vez caso 
+                         * o sejam erradas na primeira, para evitar ataques ao sistema.
+                        */
                         System.out.println("Username: ");
                         u.setUsername(Ler.umaString());
                         System.out.println("Password: ");
                         u.setPassword(Ler.umaString());
+                        System.out.println("Tipo de funcionário (1-FORNECEDOR\n2-VENDEDOR");
+                        int opt = Ler.umInt();
+                        if(opt == 1){
+                           u.setTipo(Utilizador.TIPO.FORNECEDOR);
+                        }
+                        if(opt == 2){
+                           u.setTipo(Utilizador.TIPO.VENDEDOR);
+                        }
                         s.registarUtilizador(u);
+                        RegistarUtilizadores(lista_utilizadores);
                         break;
+                        
                     case 2:
                         ArrayList<Utilizador> received = s.consultarUtilizadores();
                         String st = "Lista de Utilizadores:\n";
@@ -68,8 +83,13 @@ public class ClienteAdministrador {
                             st += received.get(i).toString() + "\n";
                         }
                         System.out.println(st);
+                        
+                        VerUtilizadores(lista_utilizadores);
                         break;
                     case 3:
+                        //TODO; remover utilizador
+                        break;
+                    case 4:
                         break;
                     default:
                         System.out.println("Opção inválida!");
