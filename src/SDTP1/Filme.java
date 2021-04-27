@@ -15,6 +15,7 @@ public class Filme implements Serializable {
     private int id;
     private String nome;
     private String categoria;
+    private int quantidade;
     private int ano;
     private double preco;
     private String pais;
@@ -28,6 +29,7 @@ public class Filme implements Serializable {
         this.id = 0;
         this.nome = "";
         this.categoria = "";
+        this.quantidade=0;
         this.ano = 0;
         this.preco = 0.0;
         this.pais = "";
@@ -38,10 +40,11 @@ public class Filme implements Serializable {
         this.stockMin = 0;
     }
 
-    public Filme(int id, String nome, String categoria, int ano, double preco, String pais, String realizador, Date dataCompraForn, Date dataVendaCliente, int aval, int stockMin) {
+    public Filme(int id, String nome, String categoria, int quantidade, int ano, double preco, String pais, String realizador, Date dataCompraForn, Date dataVendaCliente, int aval, int stockMin) {
         this.id = id;
         this.nome = nome;
         this.categoria = categoria;
+        this.quantidade=quantidade;
         this.ano = ano;
         this.preco = preco;
         this.pais = pais;
@@ -62,6 +65,10 @@ public class Filme implements Serializable {
 
     public String getCategoria() {
         return categoria;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
     }
 
     public int getAno() {
@@ -106,6 +113,10 @@ public class Filme implements Serializable {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public void setAno(int ano) {
@@ -174,6 +185,9 @@ public class Filme implements Serializable {
         }
         if (!Objects.equals(this.categoria, other.categoria)) {
             return false;
+        }       
+        if (!Objects.equals(this.quantidade, other.quantidade)) {
+            return false;
         }
         if (!Objects.equals(this.pais, other.pais)) {
             return false;
@@ -191,8 +205,7 @@ public class Filme implements Serializable {
     }  
     
     public Object clone(){
-        Filme cloneFilme = new Filme(this.id, this.nome, this.categoria, this.ano, this.preco, this.pais, this.realizador, this.dataCompraForn, this.dataVendaCliente, this.aval, this.stockMin);
+        Filme cloneFilme = new Filme(this.id, this.nome, this.categoria, this.quantidade, this.ano, this.preco, this.pais, this.realizador, this.dataCompraForn, this.dataVendaCliente, this.aval, this.stockMin);
         return cloneFilme;
-      }
-    
+      }   
 }

@@ -1,0 +1,92 @@
+-----------------------------------------------------------
+CLASSES
+-----------------------------------------------------------
+ler
+-------------
+ler do sdin
+
+ficheiro
+------------
+ler de ficheiros
+
+constantes
+-------------
+RMI_ID
+RMI_PORT
+
+utilizador
+-------------
+nome 
+tipo de utilizador
+password
+
+registar user
+verificar o login 
+
+produto
+-----------
+id
+nome
+avaliação (0-5)
+preço compra
+preço venda
+stock minimo
+data de venda (ao cliente)
+data de compra (ao fornecedor)
+categoria  {musica {genero, album, ano}, filme {genero, realizador}}
+
+
+getters e setters
+
+venda
+-----------
+vendedor
+quantidade
+arrayList filme
+
+-------------------------------------------------------------
+Tipos de CLIENTES -- TODO: modificar para estes 3 tipos clientes
+--------------------------------------------------------------
+1. Fornecedor -- Menu: (1,2,4,7)
+---------------
+1.registo de produtos (Acabar de pedir as restantes informações)
+2.adicionar stock/entrada produtos (Implementar -- através de uma lista de filmes comprados e outra de filmes vendidos)
+3.eliminação de produtos (Implementar )
+4.consulta de compras (adaptar)
+
+----------------
+2. Vendedor -- Menu: (3,5,6) (Fazer tudo)
+----------------
+1. consulta e realização de vendas (verificar o stock existente + callback ao fornecedor)
+2. consulta de produto
+3. dar saída de um produto
+
+----------------
+3. Administrador  (feito o registo -- verificar o login através de uma conta)
+---------------
+credenciais do administrador são (admin, admin) por defeito
+
+1. registo de vendedor e fornecedor através da atribuição de credenciais que permitem fazer login
+nos diferentes clientes conforme a conta fornecidada a cada utilizador
+(para manter a segurança, só os utilizadores registados podem aceder a 
+cada um dos tipos de processos)
+
+--> todos os clientes arrancam com um login. Se o login for válido então
+ir para o menu desse tipo de cliente. (FAZER)
+
+---------------------------------------------------------------------
+SERVIDOR
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Ficheiros
+---------------------------------------------------------------------
+- utilizadores registados
+- filmes
+- vendas
+- compras
+
+------------------------------------------------------------------------------------------------------
+TODO extra:
+- Persistência de dados
+- Comentários e documentação

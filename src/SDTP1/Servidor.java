@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class Servidor extends java.rmi.server.UnicastRemoteObject implements ServidorInterface {
 
     //TODO: dividir e criar interface para cada tipo de cliente (se necessário para a callback)
+    
     //lista de clientes subscritos
     private static ArrayList<ClienteInterface> clientes = new ArrayList<ClienteInterface>();
 
