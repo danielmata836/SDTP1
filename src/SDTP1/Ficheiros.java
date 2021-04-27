@@ -7,14 +7,14 @@ package SDTP1;
 import java.io.*;
 import java.util.*;
 
-public class Ficheiros {
+public class Ficheiros {//utilizadores, vendas, compras
 
-    /*public static void EscreverProdutos(ArrayList<Filme> lista_de_produtos) {
+    public static void RegistarUtilizadores (ArrayList<Utilizador> lista_utilizadores) {
 
         try {
-            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("Produto.dat"));
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("Utilizadores.dat"));
             //escrever a lista no ficheiro             
-            os.writeObject(lista_de_produtos);
+            os.writeObject(lista_utilizadores);
             os.flush();
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -22,25 +22,25 @@ public class Ficheiros {
 
     }
 
-    public static ArrayList<Filme> LerProduto(ArrayList<Filme> lista_de_produtos) {
+    public static ArrayList<Utilizador> VerUtilizadores (ArrayList<Utilizador> lista_utilizadores) {
         //Ler e Devolver Array
         try {
-            ObjectInputStream is = new ObjectInputStream(new FileInputStream("Produto.dat"));
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream("Utilizadores.dat"));
 
-            lista_de_produtos = (ArrayList<Filme>) is.readObject();
+            lista_utilizadores = (ArrayList<Utilizador>) is.readObject();
 
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        return lista_de_produtos;
+        return lista_utilizadores;
     }
 
-    public static void EscreverEncomenda(ArrayList<Encomenda> lista_de_encomendas) {
+    public static void RegistarVenda (ArrayList<Vendas> lista_vendas) {
 
         try {
-            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("Encomenda.dat"));
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("Vendas.dat"));
             // escrever o objeto lista no ficheiro             
-            os.writeObject(lista_de_encomendas);
+            os.writeObject(lista_vendas);
             os.flush();
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -48,42 +48,42 @@ public class Ficheiros {
 
     }
 
-    public static ArrayList<Encomenda> LerEncomenda(ArrayList<Encomenda> lista_de_encomendas) {
+    public static ArrayList<Vendas> VerVendas (ArrayList<Vendas> lista_vendas) {
         //Ler e Devolver Array
         try {
-            ObjectInputStream is = new ObjectInputStream(new FileInputStream("Encomenda.dat"));
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream("Vendas.dat"));
 
-            lista_de_encomendas = (ArrayList<Encomenda>) is.readObject();
+            lista_vendas = (ArrayList<Vendas>) is.readObject();
 
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        return lista_de_encomendas;
+        return lista_vendas;
     }
 
-    public static ArrayList<Avaliacao> LerAvaliacoes(ArrayList<Avaliacao> lista_de_avaliacoes) {
+    public static ArrayList<Compras> VerCompras (ArrayList<Compras> lista_compras) {
         //Ler e Devolver Array
         try {
-            ObjectInputStream is = new ObjectInputStream(new FileInputStream("Avaliacoes.dat"));
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream("Compras.dat"));
 
-            lista_de_avaliacoes = (ArrayList<Avaliacao>) is.readObject();
+            lista_compras = (ArrayList<Compras>) is.readObject();
 
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        return lista_de_avaliacoes;
+        return lista_compras;
     }
 
-    public static void EscreverAvaliacoes(ArrayList<Avaliacao> lista_de_avaliacoes) {
+    public static void RegistarCompras (ArrayList<Compras> lista_compras) {
 
         try {
-            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("Avaliacoes.dat"));
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("Compras.dat"));
             // escrever o objeto lista no ficheiro             
-            os.writeObject(lista_de_avaliacoes);
+            os.writeObject(lista_compras);
             os.flush();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
 
-    }*/
+    }
 }
