@@ -73,6 +73,8 @@ public class ClienteAdministrador {
                            u.setTipo(Utilizador.TIPO.VENDEDOR);
                         }
                         s.registarUtilizador(u);
+                        
+                        //instrução para escrever no ficheiro
                         RegistarUtilizadores(lista_utilizadores);
                         break;
                         

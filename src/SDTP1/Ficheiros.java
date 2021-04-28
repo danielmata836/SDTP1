@@ -35,7 +35,7 @@ public class Ficheiros {//utilizadores, vendas, compras
         return lista_utilizadores;
     }
 
-    public static void RegistarVenda (ArrayList<Vendas> lista_vendas) {
+    public static void RegistarTransacoes (ArrayList<Transacao> lista_vendas) {
 
         try {
             ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("Vendas.dat"));
@@ -48,42 +48,16 @@ public class Ficheiros {//utilizadores, vendas, compras
 
     }
 
-    public static ArrayList<Vendas> VerVendas (ArrayList<Vendas> lista_vendas) {
+    public static ArrayList<Transacao> VerTransacoes (ArrayList<Transacao> lista_vendas) {
         //Ler e Devolver Array
         try {
             ObjectInputStream is = new ObjectInputStream(new FileInputStream("Vendas.dat"));
 
-            lista_vendas = (ArrayList<Vendas>) is.readObject();
+            lista_vendas = (ArrayList<Transacao>) is.readObject();
 
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
         return lista_vendas;
-    }
-
-    public static ArrayList<Compras> VerCompras (ArrayList<Compras> lista_compras) {
-        //Ler e Devolver Array
-        try {
-            ObjectInputStream is = new ObjectInputStream(new FileInputStream("Compras.dat"));
-
-            lista_compras = (ArrayList<Compras>) is.readObject();
-
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
-        return lista_compras;
-    }
-
-    public static void RegistarCompras (ArrayList<Compras> lista_compras) {
-
-        try {
-            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("Compras.dat"));
-            // escrever o objeto lista no ficheiro             
-            os.writeObject(lista_compras);
-            os.flush();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
     }
 }

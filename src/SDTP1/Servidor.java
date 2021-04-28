@@ -11,14 +11,18 @@ import java.util.ArrayList;
  */
 public class Servidor extends java.rmi.server.UnicastRemoteObject implements ServidorInterface {
 
-    //TODO: dividir e criar interface para cada tipo de cliente (se necessário para a callback)
     //lista de clientes subscritos
     private static ArrayList<ClienteInterface> clientes = new ArrayList<ClienteInterface>();
 
     //lista de filmes
     private static ArrayList<Filme> filmes = new ArrayList<Filme>();
 
-    //TODO: lista de filmes comprados e outra de filmes vendidos
+    //lista de vendas
+    private static ArrayList<Transacao> vendas = new ArrayList<Transacao>();
+
+    //lista de compras
+    private static ArrayList<Transacao> compras = new ArrayList<Transacao>();
+
     //lista de utilizadores
     private static ArrayList<Utilizador> utilizadores = new ArrayList<Utilizador>();
 
@@ -71,9 +75,33 @@ public class Servidor extends java.rmi.server.UnicastRemoteObject implements Ser
     @Override
     public void removerUtilizador(Utilizador utilizador) throws RemoteException {
         String name;
-        for(int i=0;i<utilizadores.size();i++){
+        for (int i = 0; i < utilizadores.size(); i++) {
             name = utilizadores.get(i).getUsername();
-            if(utilizadores.get(i).getUsername().equals())
+            if (utilizadores.get(i).getUsername().equals(name)) {
+                utilizadores.remove(utilizadores.get(i));
+            }
+        }
+    }
+
+    @Override
+    public ArrayList<Transacao> consultarCompras() throws RemoteException {
+        return compras;
+    }
+
+    @Override
+    public ArrayList<Transacao> consultarVendas() throws RemoteException {
+        return vendas;
+    }
+
+    //TODO: aumentar stock quando um filme é adicioando
+    @Override
+    public void adicionarStock(Filme filme, int num) throws RemoteException {
+        int stock=0;
+        for(int i=0;i<filmes.size();i++){
+           if(filmes.get(i).getNome().equals(filme.getNome())){
+               
+               filmes.get(i).setQuantidade();
+           } 
         }
     }
 

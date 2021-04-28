@@ -1,6 +1,7 @@
 package SDTP1;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -12,16 +13,22 @@ import java.util.Objects;
  */
 public class Filme implements Serializable {
 
+    //TODO: corrigir categorias
+    enum CATEGORIA {
+        ACAO, TERROR, AVENTURA, COMEDIA
+    }
+
     private int id;
     private String nome;
     private String categoria;
     private int quantidade;
     private int ano;
-    private double preco;
+    private double precoCompra;
+    private double precoVenda;
     private String pais;
     private String realizador;
-    private Date dataCompraForn;
-    private Date dataVendaCliente;
+    private LocalDate dataCompraForn;
+    private LocalDate dataVendaCliente;
     private int aval;
     private int stockMin;
 
@@ -29,24 +36,26 @@ public class Filme implements Serializable {
         this.id = 0;
         this.nome = "";
         this.categoria = "";
-        this.quantidade=0;
+        this.quantidade = 0;
         this.ano = 0;
-        this.preco = 0.0;
+        this.precoCompra = 0.0;
+        this.precoVenda = 0.0;
         this.pais = "";
         this.realizador = "";
-        this.dataCompraForn = new GregorianCalendar(2000, Calendar.JANUARY, 1).getTime();;
-        this.dataVendaCliente = new GregorianCalendar(2000, Calendar.JANUARY, 1).getTime();
+        this.dataCompraForn = LocalDate.now();
+        this.dataVendaCliente = LocalDate.now();
         this.aval = 0;
         this.stockMin = 0;
     }
 
-    public Filme(int id, String nome, String categoria, int quantidade, int ano, double preco, String pais, String realizador, Date dataCompraForn, Date dataVendaCliente, int aval, int stockMin) {
+    public Filme(int id, String nome, String categoria, int quantidade, int ano, double precoCompra, double precoVenda, String pais, String realizador,  LocalDate dataCompraForn,  LocalDate dataVendaCliente, int aval, int stockMin) {
         this.id = id;
         this.nome = nome;
         this.categoria = categoria;
-        this.quantidade=quantidade;
+        this.quantidade = quantidade;
         this.ano = ano;
-        this.preco = preco;
+        this.precoCompra = precoCompra;
+        this.precoVenda = precoVenda;
         this.pais = pais;
         this.realizador = realizador;
         this.dataCompraForn = dataCompraForn;
@@ -75,10 +84,14 @@ public class Filme implements Serializable {
         return ano;
     }
 
-    public double getPreco() {
-        return preco;
+    public double getPrecoCompra() {
+        return precoCompra;
     }
-    
+
+    public double getPrecoVenda() {
+        return precoVenda;
+    }
+
     public String getPais() {
         return pais;
     }
@@ -87,11 +100,11 @@ public class Filme implements Serializable {
         return realizador;
     }
 
-    public Date getDataCompraForn() {
+    public LocalDate getDataCompraForn() {
         return dataCompraForn;
     }
 
-    public Date getDataVendaCliente() {
+    public  LocalDate getDataVendaCliente() {
         return dataVendaCliente;
     }
 
@@ -123,10 +136,14 @@ public class Filme implements Serializable {
         this.ano = ano;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
+    public void setPrecoCompra(double precoCompra) {
+        this.precoCompra = precoCompra;
     }
-    
+
+    public void setPrecoVenda(double precoVenda) {
+        this.precoVenda = precoVenda;
+    }
+
     public void setPais(String pais) {
         this.pais = pais;
     }
@@ -135,11 +152,11 @@ public class Filme implements Serializable {
         this.realizador = realizador;
     }
 
-    public void setDataCompraForn(Date dataCompraForn) {
+    public void setDataCompraForn( LocalDate dataCompraForn) {
         this.dataCompraForn = dataCompraForn;
     }
 
-    public void setDataVendaCliente(Date dataVendaCliente) {
+    public void setDataVendaCliente( LocalDate dataVendaCliente) {
         this.dataVendaCliente = dataVendaCliente;
     }
 
@@ -153,7 +170,7 @@ public class Filme implements Serializable {
 
     @Override
     public String toString() {
-        return "Produto{" + "id=" + id + ", nome=" + nome + ", categoria=" + categoria + ", ano=" + ano + ", preco=" + preco + ", pais=" + pais + ", realizador=" + realizador + ", dataCompraForn=" + dataCompraForn + ", dataVendaCliente=" + dataVendaCliente + ", aval=" + aval + ", stockMin=" + stockMin + '}';
+        return "Produto{" + "id=" + id + ", nome=" + nome + ", categoria=" + categoria + ", ano=" + ano + ", precoCompra=" + precoCompra + ", precoVenda=" + precoVenda + ", pais=" + pais + ", realizador=" + realizador + ", dataCompraForn=" + dataCompraForn + ", dataVendaCliente=" + dataVendaCliente + ", aval=" + aval + ", stockMin=" + stockMin + '}';
     }
 
     @Override
@@ -180,12 +197,18 @@ public class Filme implements Serializable {
         if (this.stockMin != other.stockMin) {
             return false;
         }
+        if (this.precoCompra != other.precoCompra) {
+            return false;
+        } 
+        if (this.precoVenda != other.precoVenda) {
+            return false;
+        } 
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
         if (!Objects.equals(this.categoria, other.categoria)) {
             return false;
-        }       
+        }
         if (!Objects.equals(this.quantidade, other.quantidade)) {
             return false;
         }
@@ -202,10 +225,10 @@ public class Filme implements Serializable {
             return false;
         }
         return true;
-    }  
-    
-    public Object clone(){
-        Filme cloneFilme = new Filme(this.id, this.nome, this.categoria, this.quantidade, this.ano, this.preco, this.pais, this.realizador, this.dataCompraForn, this.dataVendaCliente, this.aval, this.stockMin);
+    }
+
+    public Object clone() {
+        Filme cloneFilme = new Filme(this.id, this.nome, this.categoria, this.quantidade, this.ano, this.precoCompra, this.precoVenda, this.pais, this.realizador, this.dataCompraForn, this.dataVendaCliente, this.aval, this.stockMin);
         return cloneFilme;
-      }   
+    }
 }

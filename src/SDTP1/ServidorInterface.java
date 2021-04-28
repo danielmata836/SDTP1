@@ -13,9 +13,14 @@ public interface ServidorInterface extends java.rmi.Remote {
     public void registarFilme(Filme f) throws RemoteException;
     public ArrayList<Filme> consultarFilmes() throws RemoteException;
     public void registarUtilizador(Utilizador u) throws RemoteException;
+    public void adicionarStock(Filme filme, int num) throws RemoteException;
         
     //Utilizadores
     public boolean login(String nome, String password) throws RemoteException;
     public ArrayList<Utilizador> consultarUtilizadores() throws RemoteException;
-    public void removerUtilixador(Utilizador utilizador) throws RemoteException;
+    public void removerUtilizador(Utilizador utilizador) throws RemoteException;
+    
+    //Transações: compras / vendas
+     public ArrayList<Transacao> consultarCompras() throws RemoteException;
+     public ArrayList<Transacao> consultarVendas() throws RemoteException;
 }
