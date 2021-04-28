@@ -120,26 +120,42 @@ public class ClienteFornecedor {
                         ArrayList<Filme> filmesDestaCompra = new ArrayList<Filme>();
                         ArrayList<Integer> quantidade = new ArrayList<Integer>();
                         int d = 1;
+                        String nome;
+                        boolean t = false;
                         while (d == 1) {
                             Filme f = new Filme();
-                            System.out.println("Insira o nome do filme comprado:");
-                            f.setNome(Ler.umaString());
-                            System.out.println("Preço de compra: ");
-                            f.setPrecoCompra(Ler.umDouble());
-                            System.out.println("Quantidade a comprar: ");
-                            //guarda na posição respetiva o número de filmes
-                            quantidade.add((Integer) Ler.umInt());
-                            compra.setQuantidade(quantidade);
+                            System.out.println("---Nova compra---\n");
+                            System.out.println("Insira o nome do filme a comprar:");
+                            nome = Ler.umaString();
+                            f.setNome(nome);
+                            //verifica se o filme já foi previamente registado
+                            for (int i = 0; i < receivedFilmes.size(); i++) {
+                                if (receivedFilmes.get(i).getNome().equals(nome)) {
+                                    t = true;
+                                    break;
+                                }
+                            }
+                            if (t == true) {
+                                System.out.println("Preço de compra: ");
+                                f.setPrecoCompra(Ler.umDouble());
+                                System.out.println("Quantidade a comprar: ");
+                                //guarda na posição respetiva o número de filmes
+                                quantidade.add((Integer) Ler.umInt());
+                                compra.setQuantidade(quantidade);
 
-                            //adiciona o filme escolhido ao carrinho
-                            filmesDestaCompra.add(f);
-                            System.out.println("Filme " + f.getNome() + " adicionado ao carrinho.");
-                            //define a lista de compras
-                            compra.setFilmes(filmesDestaCompra);
-
+                                //adiciona o filme escolhido ao carrinho
+                                filmesDestaCompra.add(f);
+                                System.out.println("Filme " + f.getNome() + " adicionado ao carrinho.");
+                                //define a lista de compras
+                                compra.setFilmes(filmesDestaCompra);
+                            } else {
+                                System.out.println("O filme " + nome + "não está disponível para compra...");
+                            }
                             System.out.println("Deseja comprar outro filme? (1-Sim 2-Não)");
                             d = Ler.umInt();
+
                         }
+                        
                         System.out.println("Deseja confirmar a compra? (1-Sim 2-Não)");
                         //se o utilizador confirmar, então vai adicionar esta quantidade ao respetivo filme na lista de filmes (principal)
                         if (Ler.umInt() == 1) {
