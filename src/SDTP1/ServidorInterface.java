@@ -13,7 +13,8 @@ public interface ServidorInterface extends java.rmi.Remote {
     public void registarFilme(Filme f) throws RemoteException;
     public ArrayList<Filme> consultarFilmes() throws RemoteException;
     public void registarUtilizador(Utilizador u) throws RemoteException;
-    public void adicionarStock(Filme filme, int num) throws RemoteException;
+    public void adicionarStock(Filme filme, Integer num) throws RemoteException;
+    public void eliminarFilme(Filme filme) throws RemoteException;
         
     //Utilizadores
     public boolean login(String nome, String password) throws RemoteException;
@@ -21,6 +22,8 @@ public interface ServidorInterface extends java.rmi.Remote {
     public void removerUtilizador(Utilizador utilizador) throws RemoteException;
     
     //Transações: compras / vendas
-     public ArrayList<Transacao> consultarCompras() throws RemoteException;
-     public ArrayList<Transacao> consultarVendas() throws RemoteException;
+    public ArrayList<Transacao> consultarCompras() throws RemoteException;
+    public ArrayList<Transacao> consultarVendas() throws RemoteException;
+    public void registarCompra(Transacao t) throws RemoteException;
+    public void registarVenda(Transacao t) throws RemoteException;
 }

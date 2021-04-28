@@ -14,7 +14,7 @@ public class Servidor extends java.rmi.server.UnicastRemoteObject implements Ser
     //lista de clientes subscritos
     private static ArrayList<ClienteInterface> clientes = new ArrayList<ClienteInterface>();
 
-    //lista de filmes
+    //lista de filmes (PRINCIPAL)
     private static ArrayList<Filme> filmes = new ArrayList<Filme>();
 
     //lista de vendas
@@ -93,16 +93,29 @@ public class Servidor extends java.rmi.server.UnicastRemoteObject implements Ser
         return vendas;
     }
 
-    //TODO: aumentar stock quando um filme é adicioando
     @Override
-    public void adicionarStock(Filme filme, int num) throws RemoteException {
-        int stock=0;
-        for(int i=0;i<filmes.size();i++){
-           if(filmes.get(i).getNome().equals(filme.getNome())){
-               
-               filmes.get(i).setQuantidade();
-           } 
+    public void adicionarStock(Filme filme, Integer num) throws RemoteException {
+        int stock = 0;
+        for (int i = 0; i < filmes.size(); i++) {
+            if (filmes.get(i).getNome().equals(filme.getNome())) {
+                filmes.get(i).setQuantidade((int) num);
+            }
         }
+    }
+
+    @Override
+    public void eliminarFilme(Filme filme) throws RemoteException {
+        filmes.remove(filme);
+    }
+
+    @Override
+    public void registarCompra(Transacao t) throws RemoteException {
+        compras.add(t);
+    }
+
+    @Override
+    public void registarVenda(Transacao t) throws RemoteException {
+        vendas.add(t);
     }
 
     public static void main(String[] args) {

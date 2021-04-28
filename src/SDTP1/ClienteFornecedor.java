@@ -96,14 +96,16 @@ public class ClienteFornecedor {
                         break;
 
                     /**
-                     * REALIZAR COMPRA - Adicionar stock a um produuto existente
+                     * REALIZAR COMPRA - Adicionar stock a um produuto existente:
+                     * - Só é possível comprar um produto que já tenha sido registado previamente;
                      * - Vai procurar os diferemtes produtos disponíveis e vai
-                     * permitir escolher um deles para adicionar stock
+                     * permitir escolher um deles para adicionar stock;
                      */
                     case 4:
                         Transacao compra = new Transacao();
                         //filmesDestaCompra --> funciona como um carrinho de compras 
                         ArrayList<Filme> filmesDestaCompra = new ArrayList<Filme>();
+                        ArrayList<Integer> quantidade = new ArrayList<Integer>();
                         int d = 1;
                         while (d == 1) {
                             Filme f = new Filme();
@@ -112,7 +114,9 @@ public class ClienteFornecedor {
                             System.out.println("Preço de compra: ");
                             f.setPrecoCompra(Ler.umDouble());
                             System.out.println("Quantidade a comprar: ");
-                            compra.setQuantidade(Ler.umInt());
+                            //guarda na posição respetiva o número de filmes
+                            quantidade.add((Integer) Ler.umInt());
+                            compra.setQuantidade(quantidade);
                             
                             //adiciona o filme escolhido ao carrinho
                             filmesDestaCompra.add(f);
@@ -124,14 +128,25 @@ public class ClienteFornecedor {
                             d = Ler.umInt();
                         }
                         System.out.println("Deseja confirmar a compra? (1-Sim 2-Não)");
+                        //se o utilizador confirmar, então vai adicionar esta quantidade ao respetivo filme na lista de filmes (principal)
                         if(Ler.umInt() == 1){
-                           //TODO; adicionar stock
+                            for(int i=0;i<filmesDestaCompra.size();i++){
+                                s.adicionarStock(filmesDestaCompra.get(i), quantidade.get(i));
+                            }
+                            //adiciona a transação à lista de vendas
+                            receivedCompras.add(compra);
                         }
+                        else
+                            System.out.println("Compra cancelada pelo utilizador.");
                             
                         break;
                         
                      //Eliminar um filme da lista de filmes
                     case 5:
+                        System.out.println("Introduza o nome do filme: ");
+                        Filme f = new Filme();
+                        f.setNome(Ler.umaString());
+                        s.eliminarFilme(f);
                         break;
                         
                     //sair

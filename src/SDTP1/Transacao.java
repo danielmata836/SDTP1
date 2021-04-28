@@ -12,20 +12,21 @@ import java.util.ArrayList;
  * 
  */
 public class Transacao {
+    //À posição 0 do ArrayList filmes corresponde a quantidade na posição 0 da ArrayList quantidade;
     private ArrayList<Filme> filmes;
-    private int quantidade;  
+    private ArrayList<Integer> quantidade;  
     //private ClienteVendedor vendedor; //no caso de se tratar de uma compra --> null
     //private ClienteFornecedor fornecedor; //no caso de se tratar de uma venda --> null
 
-    public Transacao(ArrayList<Filme> filmes, int quantidade/*, ClienteVendedor vendedor, ClienteFornecedor*/) {
+    public Transacao(ArrayList<Filme> filmes, ArrayList<Integer> quantidade/*, ClienteVendedor vendedor, ClienteFornecedor*/) {
         this.filmes = filmes;
         this.quantidade = quantidade;
         //this.vendedor = vendedor;
     }
     
-    public Transacao(/*, ClienteVendedor vendedor, ClienteFornecedor*/) {
+    public Transacao() {
         this.filmes = new ArrayList<Filme>();
-        this.quantidade = 0;
+        this.quantidade = new  ArrayList<Integer>();
         //this.vendedor = vendedor;
         //this.fornecedor = vendedor;
     }
@@ -34,7 +35,7 @@ public class Transacao {
         return filmes;
     }
 
-    public int getQuantidade() {
+    public ArrayList<Integer> getQuantidade() {
         return quantidade;
     }
 
@@ -42,7 +43,7 @@ public class Transacao {
         this.filmes = filmes;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(ArrayList<Integer> quantidade) {
         this.quantidade = quantidade;
     }
 
