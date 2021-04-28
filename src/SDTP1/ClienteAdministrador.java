@@ -27,8 +27,7 @@ public class ClienteAdministrador {
             ServidorInterface s = (ServidorInterface) Naming.lookup(Constants.RMI_ID);
             ClienteAdministrador c = new ClienteAdministrador();
             
-            ArrayList<Utilizador> lista_utilizadores = new ArrayList<Utilizador>();
-            
+            ArrayList<Utilizador> lista_utilizadores = null; //ArrayList<Utilizador> lista_utilizadores = new ArrayList<Utilizador>();
             boolean login = false;
 
             do {

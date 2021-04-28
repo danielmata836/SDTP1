@@ -87,12 +87,10 @@ public class ClienteFornecedor {
                         }
                         System.out.println("Filme registado com sucesso!");
                         s.registarFilme(filme);
-                        //TODO--ADRIANA: registar o filme recém criado no ficheiro de Filmes
                         break;
 
                     //listar todos os produtos
                     case 2:
-                        //TODO: igual ao utilozadores
                         String st = "Lista de Filmes:\n";
                         for (int i = 0; i < receivedFilmes.size(); i++) {
                             st += receivedFilmes.get(i).toString() + "\n";
@@ -164,9 +162,8 @@ public class ClienteFornecedor {
                             for (int i = 0; i < filmesDestaCompra.size(); i++) {
                                 s.adicionarStock(filmesDestaCompra.get(i), quantidade.get(i));
                             }
-                            //adiciona a transação à lista de compras
+                            //adiciona a transação à lista de vendas
                             receivedCompras.add(compra);
-                            //TODO-ADRIANA: registo no ficheiro
                         } else {
                             System.out.println("Compra cancelada pelo utilizador.");
                         }

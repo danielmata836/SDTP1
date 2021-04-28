@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class Transacao {
     //À posição 0 do ArrayList filmes corresponde a quantidade na posição 0 da ArrayList quantidade;
-    private ArrayList<Filme> filmes;      //[0]Matrix | Shrek | ...
-    private ArrayList<Integer> quantidade;//[0]  1    |   5   | ..
+    private ArrayList<Filme> filmes;
+    private ArrayList<Integer> quantidade;  
     //private ClienteVendedor vendedor; //no caso de se tratar de uma compra --> null
     //private ClienteFornecedor fornecedor; //no caso de se tratar de uma venda --> null
 

@@ -13,12 +13,10 @@ public class Servidor extends java.rmi.server.UnicastRemoteObject implements Ser
 
     //lista de clientes subscritos
     private static ArrayList<ClienteInterface> clientes = new ArrayList<ClienteInterface>();
-    
+
     //lista de filmes (PRINCIPAL)
     private static ArrayList<Filme> filmes = new ArrayList<Filme>();
-    //TODO-ADRIANA: ler os filmes do ficheiro no arraque do servidor 
-    //o mesmo para todos os outros
-    
+
     //lista de vendas
     private static ArrayList<Transacao> vendas = new ArrayList<Transacao>();
 
