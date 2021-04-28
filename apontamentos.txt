@@ -86,10 +86,11 @@ SERVIDOR
 ---------------------------------------------------------------------
 Ficheiros (ADRIANA)
 ---------------------------------------------------------------------
-- utilizadores registados
-- filmes
-- vendas
-- compras
+- utilizadores registados --
+- filmes -- Matrix .... 2->1
+							  -> 2
+- vendas -- Matrix .... 1
+- compras --Matrix ... 1 
 
 ------------------------------------------------------------------------------------------------------
 TODO extra:
@@ -98,6 +99,7 @@ TODO extra:
 
 Sequência de execução do programa:
 1- Executar administrador para registar um vendedor e um fornecedor (no mínimo)
-2- Executar um fornecedor para registar um filme (no mínimo)
+2- Executar um fornecedor para registar um filme (stock = 0) (no mínimo) 
+3- No fornecedor adicionar stock (comprar)
 3- Executar um vendedor para dar saída de pelo menos um produto
 
