@@ -26,7 +26,8 @@ public class ClienteAdministrador {
         try {
             ServidorInterface s = (ServidorInterface) Naming.lookup(Constants.RMI_ID);
             ClienteAdministrador c = new ClienteAdministrador();
-            ArrayList<Utilizador> lista_utilizadores = null;
+            
+            ArrayList<Utilizador> lista_utilizadores = null; //ArrayList<Utilizador> lista_utilizadores = new ArrayList<Utilizador>();
             boolean login = false;
 
             do {
@@ -74,19 +75,15 @@ public class ClienteAdministrador {
                         }
                         s.registarUtilizador(u);
                         
-                        //instrução para escrever no ficheiro
-                        RegistarUtilizadores(lista_utilizadores);
+                        //adiciona na array list utilizadores do ficheiro
+                        lista_utilizadores.add(u);
+                        
                         break;
                         
                     case 2:
-                        ArrayList<Utilizador> received = s.consultarUtilizadores();
-                        String st = "Lista de Utilizadores:\n";
-                        for (int i = 0; i < received.size(); i++) {
-                            st += received.get(i).toString() + "\n";
-                        }
-                        System.out.println(st);
+                        //vai buscar ao ficheiro a array list de utilizadores
+                        System.out.println("Lista de Utilizadores:\n" + VerUtilizadores(lista_utilizadores));
                         
-                        VerUtilizadores(lista_utilizadores);
                         break;
                     case 3:
                         //TODO; remover utilizador
