@@ -13,7 +13,7 @@ public class ClienteFornecedor {
 
     //Método local
     public static void printMenuFilme() {
-        System.out.println("----------\nMENU\n----------\n1-Registar\n2-Listar produtos\n3-Listar compras\n4-Realizar compra\n5-Eliminar Produto\n5-Sair\n----------");
+        System.out.println("----------\nMENU\n----------\n1-Registar\n2-Listar Filmes\n3-Listar Compras\n4-Realizar Compra\n5-Eliminar Filme\n6-Sair\n----------");
     }
 
     //Método local
@@ -62,7 +62,7 @@ public class ClienteFornecedor {
                 ArrayList<Transacao> receivedCompras = s.consultarCompras();
 
                 switch (op) {
-                    //registo de novo produto na loja
+                    //registo de novo filme na loja
                     case 1:
                         Filme filme = new Filme();
                         filme.setId(id);
@@ -90,9 +90,9 @@ public class ClienteFornecedor {
                         //TODO--ADRIANA: registar o filme recém criado no ficheiro de Filmes
                         break;
 
-                    //listar todos os produtos
+                    //listar todos os filmes
                     case 2:
-                        //TODO: igual ao utilozadores
+                        //TODO: igual ao utilozadores ficheiro
                         String st = "Lista de Filmes:\n";
                         for (int i = 0; i < receivedFilmes.size(); i++) {
                             st += receivedFilmes.get(i).toString() + "\n";
@@ -102,6 +102,8 @@ public class ClienteFornecedor {
 
                     //listar compras
                     case 3:
+                        System.out.println("Teste");
+                        //TODO: igual ao utilozadores ficheiro
                         String stC = "Lista de Compras:\n";
                         for (int i = 0; i < receivedCompras.size(); i++) {
                             stC += receivedCompras.get(i).toString() + "\n";
@@ -110,7 +112,7 @@ public class ClienteFornecedor {
                         break;
 
                     /**
-                     * REALIZAR COMPRA - Adicionar stock a um produuto
+                     * REALIZAR COMPRA - Adicionar stock a um produto
                      * existente: - Só é possível comprar um produto que já
                      * tenha sido registado previamente; - Vai procurar os
                      * diferemtes produtos disponíveis e vai permitir escolher
@@ -165,7 +167,7 @@ public class ClienteFornecedor {
                                 s.adicionarStock(filmesDestaCompra.get(i), quantidade.get(i));
                             }
                             //adiciona a transação à lista de compras
-                            receivedCompras.add(compra);
+                            s.registarCompra(compra);
                             //TODO-ADRIANA: registo no ficheiro
                         } else {
                             System.out.println("Compra cancelada pelo utilizador.");
@@ -179,6 +181,7 @@ public class ClienteFornecedor {
                         Filme f = new Filme();
                         f.setNome(Ler.umaString());
                         s.eliminarFilme(f);
+                        System.out.println("Filme eliminado!");
                         break;
 
                     //sair

@@ -56,7 +56,7 @@ Tipos de CLIENTES
 -1.registo de produtos (TODO: Acabar de pedir as restantes informações)
 -2.adicionar stock/entrada produtos (FEITO)
 -3.eliminação de produtos (FEITO)
--4.consulta de compras (FEITO)
+-4.consulta de compras (ERRO)
 
 ----------------
 2. Vendedor -- Menu: (3,5,6) (Fazer tudo) (FERNANDO)
@@ -74,6 +74,7 @@ credenciais do administrador são (admin, admin) por defeito
 nos diferentes clientes conforme a conta fornecidada a cada utilizador
 (para manter a segurança, só os utilizadores registados podem aceder a 
 cada um dos tipos de processos)
+--> (ERRO) na consulta de utilizador
 
 LOGIN
 --> todos os clientes arrancam com um login. Se o login for válido então

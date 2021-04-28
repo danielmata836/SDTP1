@@ -1,7 +1,6 @@
 package SDTP1;
 
 import static SDTP1.Ficheiros.*;
-import static java.lang.System.exit;
 import java.rmi.Naming;
 import java.util.ArrayList;
 
@@ -66,7 +65,7 @@ public class ClienteAdministrador {
                         u.setUsername(Ler.umaString());
                         System.out.println("Password: ");
                         u.setPassword(Ler.umaString());
-                        System.out.println("Tipo de funcionário (1-FORNECEDOR\n2-VENDEDOR");
+                        System.out.println("Tipo de funcionário (1-FORNECEDOR 2-VENDEDOR");
                         int opt = Ler.umInt();
                         if(opt == 1){
                            u.setTipo(Utilizador.TIPO.FORNECEDOR);
@@ -84,10 +83,13 @@ public class ClienteAdministrador {
                     case 2:
                         //vai buscar ao ficheiro a array list de utilizadores
                         System.out.println("Lista de Utilizadores:\n" + VerUtilizadores(lista_utilizadores));
-                        
                         break;
                     case 3:
-                        //TODO; remover utilizador
+                        System.out.println("Introduza o nome do filme: ");
+                        Filme f = new Filme();
+                        f.setNome(Ler.umaString());
+                        s.eliminarFilme(f);
+                        System.out.println("ola");
                         break;
                     case 4:
                         break;

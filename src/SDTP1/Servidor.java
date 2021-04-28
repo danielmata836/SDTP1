@@ -97,10 +97,11 @@ public class Servidor extends java.rmi.server.UnicastRemoteObject implements Ser
 
     @Override
     public void adicionarStock(Filme filme, Integer num) throws RemoteException {
-        int stock = 0;
+        int stock = 0, q=0;
         for (int i = 0; i < filmes.size(); i++) {
             if (filmes.get(i).getNome().equals(filme.getNome())) {
-                filmes.get(i).setQuantidade((int) num);
+                q=filmes.get(i).getQuantidade();
+                filmes.get(i).setQuantidade(q+(int) num);
             }
         }
     }
