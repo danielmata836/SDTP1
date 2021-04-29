@@ -1,5 +1,6 @@
 package SDTP1;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -11,10 +12,10 @@ import java.util.ArrayList;
  * Esta classe serve o propósito de representar as operações de compra e venda de filmes
  * 
  */
-public class Transacao {
+public class Transacao implements Serializable {
     //À posição 0 do ArrayList filmes corresponde a quantidade na posição 0 da ArrayList quantidade;
-    private ArrayList<Filme> filmes;
-    private ArrayList<Integer> quantidade;  
+    private ArrayList<Filme> filmes;      //[0]Matrix | Shrek | ...
+    private ArrayList<Integer> quantidade;//[0]  1    |   5   | ..
     //private ClienteVendedor vendedor; //no caso de se tratar de uma compra --> null
     //private ClienteFornecedor fornecedor; //no caso de se tratar de uma venda --> null
 
