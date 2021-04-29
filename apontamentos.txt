@@ -56,7 +56,7 @@ Tipos de CLIENTES
 -1.registo de produtos (TODO: Acabar de pedir as restantes informações)
 -2.adicionar stock/entrada produtos (FEITO)
 -3.eliminação de produtos (FEITO)
--4.consulta de compras (ERRO)
+-4.consulta de compras (FEITO)
 
 ----------------
 2. Vendedor -- Menu: (3,5,6) (Fazer tudo) (FERNANDO)
@@ -74,7 +74,6 @@ credenciais do administrador são (admin, admin) por defeito
 nos diferentes clientes conforme a conta fornecidada a cada utilizador
 (para manter a segurança, só os utilizadores registados podem aceder a 
 cada um dos tipos de processos)
---> (ERRO) na consulta de utilizador
 
 LOGIN
 --> todos os clientes arrancam com um login. Se o login for válido então
@@ -87,11 +86,10 @@ SERVIDOR
 ---------------------------------------------------------------------
 Ficheiros (ADRIANA)
 ---------------------------------------------------------------------
-- utilizadores registados --
-- filmes -- Matrix .... 2->1
-							  -> 2
-- vendas -- Matrix .... 1
-- compras --Matrix ... 1 
+- utilizadores registados
+- filmes
+- vendas
+- compras
 
 ------------------------------------------------------------------------------------------------------
 TODO extra:
@@ -100,7 +98,6 @@ TODO extra:
 
 Sequência de execução do programa:
 1- Executar administrador para registar um vendedor e um fornecedor (no mínimo)
-2- Executar um fornecedor para registar um filme (stock = 0) (no mínimo) 
-3- No fornecedor adicionar stock (comprar)
+2- Executar um fornecedor para registar um filme (no mínimo)
 3- Executar um vendedor para dar saída de pelo menos um produto
 
