@@ -75,16 +75,14 @@ public class Servidor extends java.rmi.server.UnicastRemoteObject implements Ser
     }
 
     @Override
-    public boolean removerUtilizador(Utilizador utilizador) throws RemoteException {
+    public void removerUtilizador(Utilizador utilizador) throws RemoteException {
         String name;
         for (int i = 0; i < utilizadores.size(); i++) {
             name = utilizadores.get(i).getUsername();
             if (utilizadores.get(i).getUsername().equals(name)) {
                 utilizadores.remove(utilizadores.get(i));
-                return true;
             }
         }
-        return false;
     }
 
     @Override
@@ -109,16 +107,8 @@ public class Servidor extends java.rmi.server.UnicastRemoteObject implements Ser
     }
 
     @Override
-    public boolean eliminarFilme(Filme filme) throws RemoteException {
-        String name;
-        for (int i = 0; i < filmes.size(); i++) {
-            name = filmes.get(i).getNome();
-            if (filmes.get(i).getNome().equals(name)) {
-                filmes.remove(filmes.get(i));
-                return true;
-            }
-        }
-        return false;
+    public void eliminarFilme(Filme filme) throws RemoteException {
+        filmes.remove(filme);
     }
 
     @Override

@@ -1,10 +1,6 @@
 -----------------------------------------------------------
 CLASSES
 -----------------------------------------------------------
-transacao
------------
-modificar --> retirar a lista de quantidades
-
 ler
 -------------
 ler do sdin
@@ -58,10 +54,9 @@ Tipos de CLIENTES
 1. Fornecedor -- Menu: (1,2,4,7)
 ---------------
 -1.registo de produtos (TODO: Acabar de pedir as restantes informações)
--2. listar filmes. (FEITO)
--3. listar compras (FEITO)
--4.realizar compra --> adicionar stock/entrada produtos (FEITO)
--5.eliminação de produtos (FEITO)
+-2.adicionar stock/entrada produtos (FEITO)
+-3.eliminação de produtos (FEITO)
+-4.consulta de compras (ERRO)
 
 ----------------
 2. Vendedor -- Menu: (3,5,6) (Fazer tudo) (FERNANDO)
@@ -79,8 +74,7 @@ credenciais do administrador são (admin, admin) por defeito
 nos diferentes clientes conforme a conta fornecidada a cada utilizador
 (para manter a segurança, só os utilizadores registados podem aceder a 
 cada um dos tipos de processos)
-- 2.  consulta de utilizador
-- 3. remover utilizador
+--> (ERRO) na consulta de utilizador
 
 LOGIN
 --> todos os clientes arrancam com um login. Se o login for válido então
@@ -103,7 +97,6 @@ Ficheiros (ADRIANA)
 TODO extra:
 - Persistência de dados
 - Comentários e documentação
-- !!!!!! Synchronized no objeto remoto!!!!!!! -> só na alteração
 
 Sequência de execução do programa:
 1- Executar administrador para registar um vendedor e um fornecedor (no mínimo)
@@ -111,18 +104,3 @@ Sequência de execução do programa:
 3- No fornecedor adicionar stock (comprar)
 3- Executar um vendedor para dar saída de pelo menos um produto
 
---------------------------------------------------------------------------
-Resolver problema de demora de resposta dos processos:
-- System.setProperty("java.rmi.server.hostname", IPDoServidorAConectar);
-por isso antes do lookup.
-
-À priori isso deve fazer com que a conexão seja quase instantâneo ou pelo menos mais rápida do que sem isso.
-
-Verificar e fazer os factories da ficha 7. Pode ser necessário para o trabalho.
-
-
-------------------------------------
-Colocar duas máquinas a comunicar:
-- no cliente quando pede o lookup deve-se colocar o ip do servidor
-- desativar a firewall na máquina servidor
-- fazer a ligação por cabo ethernet ou pelo hotspot do smartphone

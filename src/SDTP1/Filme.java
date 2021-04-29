@@ -3,7 +3,6 @@ package SDTP1;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
-import static SDTP1.Filme.CATEGORIA.*;
 
 /**
  *
@@ -13,12 +12,12 @@ public class Filme implements Serializable {
 
     //TODO: corrigir categorias
     enum CATEGORIA {
-        DEFAULT, ACAO, ROMANCE, MISTERIO, AVENTURA, FANTASIA, FICCAOCIENTIFICA, COMEDIA, DRAMA 
+        ACAO, TERROR, AVENTURA, COMEDIA
     }
 
     private int id;
     private String nome;
-    private CATEGORIA categoria;
+    private String categoria;
     private int quantidade;
     private int ano;
     private double precoCompra;
@@ -32,7 +31,7 @@ public class Filme implements Serializable {
     public Filme() {
         this.id = 0;
         this.nome = "";
-        this.categoria = DEFAULT;
+        this.categoria = "";
         this.quantidade = 0;
         this.ano = 0;
         this.precoCompra = 0.0;
@@ -44,7 +43,7 @@ public class Filme implements Serializable {
         this.stockMin = 0;
     }
 
-    public Filme(int id, String nome, CATEGORIA categoria, int quantidade, int ano, double precoCompra, double precoVenda, String pais, String realizador,  LocalDate dataCompraForn,  LocalDate dataVendaCliente, int stockMin) {
+    public Filme(int id, String nome, String categoria, int quantidade, int ano, double precoCompra, double precoVenda, String pais, String realizador,  LocalDate dataCompraForn,  LocalDate dataVendaCliente, int stockMin) {
         this.id = id;
         this.nome = nome;
         this.categoria = categoria;
@@ -67,7 +66,7 @@ public class Filme implements Serializable {
         return nome;
     }
 
-    public CATEGORIA getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
@@ -115,7 +114,7 @@ public class Filme implements Serializable {
         this.nome = nome;
     }
 
-    public void setCategoria(CATEGORIA categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
@@ -157,7 +156,7 @@ public class Filme implements Serializable {
 
     @Override
     public String toString() {
-        return "Filme{" + "id=" + id + ", nome=" + nome + ", categoria=" + categoria + ", ano=" + ano + ", precoCompra=" + precoCompra + ", precoVenda=" + precoVenda + ", pais=" + pais + ", realizador=" + realizador + ", dataCompraForn=" + dataCompraForn + ", dataVendaCliente=" + dataVendaCliente + ", stockMin=" + stockMin + '}';
+        return "Produto{" + "id=" + id + ", nome=" + nome + ", categoria=" + categoria + ", ano=" + ano + ", precoCompra=" + precoCompra + ", precoVenda=" + precoVenda + ", pais=" + pais + ", realizador=" + realizador + ", dataCompraForn=" + dataCompraForn + ", dataVendaCliente=" + dataVendaCliente + ", stockMin=" + stockMin + '}';
     }
 
     @Override
