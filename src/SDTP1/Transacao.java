@@ -1,55 +1,65 @@
 package SDTP1;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.time.LocalDate;
 
 /**
- *
+ * Esta classe serve o propósito de representar as operações de compra e venda de filmes.
  * @author Adriana, Daniel e Fernando
+ * @version 1.0
  */
 
-/**
- * Esta classe serve o propósito de representar as operações de compra e venda de filmes
- * 
- */
 public class Transacao implements Serializable {
-    //À posição 0 do ArrayList filmes corresponde a quantidade na posição 0 da ArrayList quantidade;
-    private ArrayList<Filme> filmes;      //[0]Matrix | Shrek | ...
-    private ArrayList<Integer> quantidade;//[0]  1    |   5   | ..
+    private Filme filme;     
+    private int quantidade;
+    //Por implementar:
     //private ClienteVendedor vendedor; //no caso de se tratar de uma compra --> null
     //private ClienteFornecedor fornecedor; //no caso de se tratar de uma venda --> null
+    private LocalDate dataNegocio;
 
-    public Transacao(ArrayList<Filme> filmes, ArrayList<Integer> quantidade/*, ClienteVendedor vendedor, ClienteFornecedor*/) {
-        this.filmes = filmes;
+    public Transacao(Filme filme, int quantidade,LocalDate data/*, ClienteVendedor vendedor, ClienteFornecedor*/) {
+        this.filme = filme;
         this.quantidade = quantidade;
+        this.dataNegocio=data;
         //this.vendedor = vendedor;
     }
     
     public Transacao() {
-        this.filmes = new ArrayList<Filme>();
-        this.quantidade = new  ArrayList<Integer>();
+        this.filme = new Filme();
+        this.quantidade = 0;
+        this.dataNegocio=LocalDate.now();
         //this.vendedor = vendedor;
         //this.fornecedor = vendedor;
     }
 
-    public ArrayList<Filme> getFilmes() {
-        return filmes;
+    public Filme getFilme() {
+        return filme;
     }
 
-    public ArrayList<Integer> getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
+    
+    public LocalDate getData() {
+        return dataNegocio;
+    }
+    
 
-    public void setFilmes(ArrayList<Filme> filmes) {
-        this.filmes = filmes;
+    public void setFilmes(Filme filme) {
+        this.filme = filme;
     }
 
-    public void setQuantidade(ArrayList<Integer> quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+    
+    public void setData(LocalDate data) {
+        this.dataNegocio = data;
+    }
 
+    
     @Override
     public String toString() {
-        return "Venda{" + "filmes=" + filmes + ", quantidade=" + quantidade + '}';
+        return "Venda{" + "filmes=" + filme + ", quantidade=" + quantidade + '}';
     }  
 }

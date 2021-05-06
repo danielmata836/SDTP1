@@ -1,8 +1,11 @@
 package SDTP1;
 
 /**
- *
+ * Esta classe implementa todas as funcionalidades de input através do teclado.
+ * Referência: classe fornecida pela Professora Paula Prata na Unidade Curricular 
+ * de Programação de Dispositivos Móveis no ano letivo 2019/2020.  
  * @author Adriana, Daniel e Fernando
+ * @version 1.0
  */
 import java.io.*;
 

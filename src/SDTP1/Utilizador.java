@@ -4,10 +4,17 @@ import static SDTP1.Utilizador.TIPO.NENHUM;
 import java.io.Serializable;
 
 /**
- *
- * @author Daniel
+ * A classe Utilizador implementa uma classe que representa um funcionário da 
+ * loja no sistema. Um objeto desta classe permite gerir as permissões e o sistema de login.
+ * @author Adriana, Daniel e Fernando
+ * @version 1.0
  */
 public class Utilizador implements Serializable {
+    
+    /*
+    * O tipo de Utilizador permite fazer a gestão de permissões, na medida em que,
+    * um utilizador só pode aceder ao processo cliente que corresponde à sua categoria.
+    */
     enum TIPO {
         FORNECEDOR, VENDEDOR, NENHUM
     }
@@ -16,6 +23,7 @@ public class Utilizador implements Serializable {
     private TIPO tipo;
     private String password;
 
+    //Construtores
     public Utilizador() {
         this.username = "";
         this.tipo = NENHUM;
@@ -30,6 +38,7 @@ public class Utilizador implements Serializable {
         this.password = password;
     }
 
+    //Getters
     public int getId() {
         return id;
     }
@@ -46,6 +55,7 @@ public class Utilizador implements Serializable {
         return password;
     }
 
+    //Setters
     public void setId(int id) {
         this.id = id;
     }

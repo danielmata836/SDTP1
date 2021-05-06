@@ -1,4 +1,5 @@
 grant {
 // allows anyone to listen on un-privileged ports
 permission java.net.SocketPermission "*:1024-65535", "listen,accept,connect";
+permission java.io.FilePermission "C:/Users/Daniel/Desktop/Novapasta/30.04/SDTP1/-", "write, read" ;
 };
